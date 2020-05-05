@@ -48,7 +48,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     public class ListViewHolder extends RecyclerView.ViewHolder {
         private TextView restaurant_name_View, eventDateDay, eventDateMonth, eventDescription;
         private ImageView eventImageView;
-        private Button detailButton;
 
         private ListViewHolder(View itemView) {
             super(itemView);
@@ -62,9 +61,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
             restaurant_name_View.setText(restaurant.getName());
             //eventNameView.setText(event.getEventName());
             Picasso.get().load(restaurant.getImage()).fit().centerCrop().into(eventImageView);
-            /*eventDateMonth.setText(event.getMonth());
-            eventDateDay.setText(event.getDay());
-            eventDescription.setText(event.getFrenchDescription());*/
             View.OnClickListener listener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

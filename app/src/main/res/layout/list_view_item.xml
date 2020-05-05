@@ -5,71 +5,110 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:background="@color/colorAccent">
+    android:background="@color/white">
 
-    <Button
-        android:id="@+id/more_details_button"
-        android:layout_width="180dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/round_button"
-        android:foreground="@android:drawable/ic_dialog_info"
-        android:foregroundGravity="center"
-        android:lineHeight="2dp"
-        android:outlineProvider="bounds"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/event_description_view"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/event_image_view"
-        android:layout_width="370dp"
-        android:layout_height="250dp"
+        android:layout_width="340dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="16dp"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/event_description_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="3"
-        android:paddingBottom="16dp"
-        android:paddingEnd="45dp"
-        android:paddingStart="64dp"
-        android:paddingTop="16dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/event_name_view"
-        tools:text="Restaurant description here" />
-
-
-    <TextView
         android:id="@+id/event_name_view"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:foregroundGravity="center"
+        android:gravity="start|center"
+        android:maxLines="3"
         android:minHeight="45dp"
         android:singleLine="false"
-        android:maxLines="3"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="@color/white"
+        android:textColor="@color/Black"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_image_view"
         tools:text="Wine and Cheese Tasting" />
+
+    <TextView
+        android:id="@+id/event_category"
+        android:layout_width="313dp"
+        android:layout_height="28dp"
+        android:gravity="start|center"
+        android:text="$-African-Healthy-Sandwish-Salads"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/event_name_view" />
+
+    <TextView
+        android:id="@+id/duration_view"
+        android:layout_width="75dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/background"
+        android:gravity="center"
+        android:text="30-45 Min"
+        app:layout_constraintBottom_toTopOf="@+id/delivery_fee_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rating_view"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/rating_view"
+        android:layout_width="28dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/background"
+        android:foregroundGravity="center|right"
+        android:gravity="center"
+        android:text="4.3"
+        app:layout_constraintStart_toEndOf="@+id/duration_view"
+        app:layout_constraintTop_toBottomOf="@+id/event_category" />
+
+    <TextView
+        android:id="@+id/delivery_fee_view"
+        android:layout_width="144dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginRight="192dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:background="@color/background"
+        android:text="$0.99 Delivery Fee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/duration_view" />
+
+    <TextView
+        android:id="@+id/star_view"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/background"
+        android:foreground="@drawable/ic_star_black_24dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/delivery_fee_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/rating_view"
+        app:layout_constraintTop_toBottomOf="@+id/event_category"
+        app:layout_constraintVertical_bias="0.437" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
