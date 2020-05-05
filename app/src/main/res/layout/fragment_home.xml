@@ -12,6 +12,7 @@
 
         <ViewFlipper
             android:id="@+id/newsViewFlipper"
+            android:elevation="2dp"
             android:layout_width="match_parent"
             android:layout_height="188dp"
             android:layout_marginBottom="9dp"
@@ -27,7 +28,9 @@
 
         <SearchView
             android:id="@+id/searchView"
+            android:theme="@style/Widget.AppCompat.SearchView.ActionBar"
             android:layout_width="378dp"
+
             android:layout_height="36dp"
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
