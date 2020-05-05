@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:background="@color/white">
+
+    android:background="@color/white"
+    android:outlineAmbientShadowColor="@color/background"
+    android:theme="@style/CardView.Dark">
 
 
     <ImageView
@@ -87,8 +90,8 @@
         android:layout_marginEnd="192dp"
         android:layout_marginRight="192dp"
         android:layout_marginBottom="20dp"
-        android:gravity="center"
         android:background="@color/background"
+        android:gravity="center"
         android:text="$0.99 Delivery Fee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
