@@ -14,6 +14,36 @@ public class Restaurant implements Serializable {
     private int closing_time;
     private double latitude;
     private double longitude;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String type;
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    private String rating;
+
+    public String getWorking_hours() {
+        return working_hours;
+    }
+
+    public void setWorking_hours(String working_hours) {
+        this.working_hours = working_hours;
+    }
+
+    private String working_hours;
     private String image;
 
     public String getFr_description() {
@@ -59,7 +89,7 @@ public class Restaurant implements Serializable {
 
     }
 
-    public Restaurant(String name, String image, String username, String email, String phone_numb, String address, String id, int opening_time, int closing_time, double longitude, double latitude, String fr_description, String en_description) {
+    public Restaurant(String name, String image, String username, String email, String phone_numb, String address, String id, String working_hours, double longitude, double latitude, String fr_description, String en_description, String rating, String type) {
         this.name = name;
         this.image = image;
         this.username = username;
@@ -67,12 +97,13 @@ public class Restaurant implements Serializable {
         this.phone_numb = phone_numb;
         this.address = address;
         this.id = id;
-        this.opening_time = opening_time;
-        this.closing_time = closing_time;
+        this.working_hours = working_hours;
         this.latitude=latitude;
         this.longitude=longitude;
         this.fr_description=fr_description;
         this.en_description=en_description;
+        this.rating=rating;
+        this.type=type;
 
     }
 
