@@ -18,6 +18,7 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.project.easyfood_1_0.entities.Restaurant;
+import com.squareup.picasso.Picasso;
 
 
 public class DetailFragment extends Fragment implements OnMapReadyCallback {
@@ -25,25 +26,27 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     private TextView eventTitleView;
     private TextView eventDateView;
     private TextView eventAddressView;
-    private GoogleMap mMap;
+    //private GoogleMap mMap;
     private TextView eventDescriptionFr;
     private TextView eventDescriptionEn;
     private TextView frenchCostView;
     private TextView englishCostView;
+    private TextView delivery_estimate;
+    private TextView restaurant_type;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        View view = inflater.inflate(R.layout.fragment_detail_2, container, false);
+        //SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
         initViews(view);
         final Restaurant event = (Restaurant) getArguments().getSerializable("restaurant");
-        //Picasso.get().load(event.getImageUrl()).fit().centerCrop().into(eventImageView);
+        Picasso.get().load(event.getImage()).fit().centerCrop().into(eventImageView);
         eventTitleView.setText(event.getName());
-        eventAddressView.setText(event.getAddress());
-        eventDescriptionFr.setText(event.getFr_description());
-        eventDescriptionEn.setText(event.getFr_description());
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
+        delivery_estimate.setText("5-10 MIN");
+        restaurant_type.setText("$. African. Fast Food. Pizza");
+
+        /*mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -64,15 +67,16 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
                         .position(new LatLng(event.getLongitude(), event.getLatitude())));
 
             }
-        });
+        });*/
         return view;
     }
 
     private void initViews(View view) {
-        eventTitleView = view.findViewById(R.id.event_title);
-        eventAddressView = view.findViewById(R.id.event_address_view);
-        eventDescriptionFr = view.findViewById(R.id.event_description_fr);
-        eventDescriptionEn = view.findViewById(R.id.event_description_en);
+        eventImageView = view.findViewById(R.id.event_image_view);
+        eventTitleView = view.findViewById(R.id.restaurant_title);
+        delivery_estimate = view.findViewById(R.id.delivery_duration_vew);
+        restaurant_type = view.findViewById(R.id.type_view);
+
 
     }
 

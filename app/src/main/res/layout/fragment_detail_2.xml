@@ -1,26 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="891dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+        <ImageView
+            android:id="@+id/event_image_view"
+            android:layout_width="410dp"
+            android:layout_height="290dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
-        </androidx.recyclerview.widget.RecyclerView>
+        <View
+            android:id="@+id/view2"
+            android:layout_width="363dp"
+            android:layout_height="185dp"
+            android:layout_marginTop="224dp"
+            android:background="@color/white"
+            android:elevation="2dp"
+            app:layout_constraintEnd_toEndOf="@+id/event_image_view"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="@+id/event_image_view"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/restaurant_title"
+            android:layout_width="263dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:text="Hotel Restaurant Badalodge Bamako"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toTopOf="@+id/view2" />
+
+        <TextView
+            android:id="@+id/type_view"
+            android:layout_width="263dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="40dp"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:text="$. African . Fast-Food . Burgers"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toBottomOf="@+id/event_image_view" />
+
+        <TextView
+            android:id="@+id/delivery_duration_vew"
+            android:layout_width="110dp"
+            android:elevation="2dp"
+            android:layout_height="28dp"
+            android:gravity="center"
+            android:text="30 - 40 MIN"
+            app:layout_constraintEnd_toEndOf="@+id/view2"
+            app:layout_constraintStart_toStartOf="@+id/view2"
+            app:layout_constraintTop_toBottomOf="@+id/type_view" />
+
+        <ListView
+            android:layout_width="412dp"
+            android:layout_height="513dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </ScrollView>
