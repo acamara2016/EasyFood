@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:fillViewport="true"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view">
+        android:layout_height="wrap_content">
 
         <View
             android:id="@+id/view"
@@ -52,10 +51,10 @@
             android:layout_width="263dp"
             android:layout_height="95dp"
             android:layout_marginTop="16dp"
-            android:textSize="20sp"
             android:elevation="2dp"
             android:gravity="center"
             android:text="Hotel Restaurant Badalodge Bamako"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/view2"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toTopOf="@+id/view2" />
@@ -75,8 +74,8 @@
         <TextView
             android:id="@+id/delivery_duration_vew"
             android:layout_width="110dp"
-            android:elevation="2dp"
             android:layout_height="28dp"
+            android:elevation="2dp"
             android:gravity="center"
             android:text="30 - 40 MIN"
             app:layout_constraintEnd_toEndOf="@+id/view2"
@@ -84,14 +83,19 @@
             app:layout_constraintTop_toBottomOf="@+id/type_view" />
 
         <ListView
-            android:layout_width="412dp"
-            android:layout_height="513dp"
-            android:layout_marginTop="28dp"
+            android:id="@+id/simpleListView"
+            android:layout_width="match_parent"
+            android:nestedScrollingEnabled="true"
+            android:layout_height="500dp"
+            android:layout_marginTop="36dp"
+            android:divider="#f00"
+            android:dividerHeight="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
