@@ -1,7 +1,6 @@
 package com.project.easyfood_1_0;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,24 +8,26 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.zip.Inflater;
+import com.project.easyfood_1_0.entities.Food;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomListAdapter extends BaseAdapter {
     Context context;
-    String countryList[];
-    int flags[];
+    List<Food> menu;
     LayoutInflater inflter;
 
-    public CustomListAdapter(Context applicationContext, String[] countryList, int[] flags) {
+    public CustomListAdapter(Context applicationContext, List<Food> menu) {
         this.context = context;
-        this.countryList = countryList;
-        this.flags = flags;
+        this.menu = menu;
         inflter = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return countryList.length;
+        return menu.size();
     }
 
     @Override
@@ -42,10 +43,14 @@ public class CustomListAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.actiivity_listview, null);
-        TextView country = (TextView) view.findViewById(R.id.textView);
-        ImageView icon = (ImageView) view.findViewById(R.id.icon);
-        country.setText(countryList[i]);
-        icon.setImageResource(flags[i]);
+        TextView food_name = (TextView) view.findViewById(R.id.food_name);
+        TextView food_price = (TextView) view.findViewById(R.id.food_price);
+        TextView food_desc = (TextView) view.findViewById(R.id.food_description);
+        ImageView icon = (ImageView) view.findViewById(R.id.food_image);
+        food_name.setText(menu.get(i).getName());
+        //Picasso.get().load(menu.get(i).getImage()).fit().centerCrop().into(icon);
+        //food_price.setText(menu.get(i).getPrice());
+        //food_desc.setText(menu.get(i).getName());
         return view;
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.project.easyfood_1_0.entities.Food;
 import com.project.easyfood_1_0.entities.Restaurant;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ import java.util.List;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder> {
 
     public List<Restaurant> data = new ArrayList<>();
-
+    public List<Food> menu = new ArrayList<>();
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -58,6 +60,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
 
         private void bindView(int position) {
             final Restaurant restaurant = data.get(position);
+
             restaurant_name_View.setText(restaurant.getName());
             //eventNameView.setText(event.getEventName());
             Picasso.get().load(restaurant.getImage()).fit().centerCrop().into(eventImageView);
@@ -66,6 +69,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
                 public void onClick(View v) {
                     final Bundle bundle = new Bundle();
                     bundle.putSerializable("restaurant", restaurant);
+
                     Navigation.findNavController(itemView)
                             .navigate(R.id.action_navigation_home_to_detailFragment, bundle);
                 }

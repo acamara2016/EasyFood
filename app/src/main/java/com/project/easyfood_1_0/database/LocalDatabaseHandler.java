@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.project.easyfood_1_0.entities.Comment;
+import com.project.easyfood_1_0.entities.Food;
 import com.project.easyfood_1_0.entities.Restaurant;
 
+import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,11 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
     private static final String RESTAURANT_IMAGE = "image_url";
     private static final String RESTAURANT_LONG = "longitude";
     private static final String RESTAURANT_LAT = "latitude";
+    private static final String FOOD_NAME = "food_name";
+    private static final String FOOD_PRICE = "food_price";
+    private static final String FOOD_IMAGE = "food_image";
+    private static final String FOOD_CATEGORY = "food_category";
+
 
     public LocalDatabaseHandler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -39,6 +46,10 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
                 "address TEXT, " +
                 "date TEXT, " +
                 "image_url TEXT, " +
+                "food_name TEXT, "+
+                "food_price TEXT, "+
+                "food_image TEXT, "+
+                "food_category TEXT, "+
                 "longitude REAL, " +
                 "latitude REAL)");
     }
@@ -64,6 +75,17 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
+    public boolean insertFoodIntoMenu(Food food){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FOOD_NAME, food.getName());
+        contentValues.put(FOOD_PRICE, food.getPrice());
+        contentValues.put(FOOD_IMAGE, food.getImage());
+        contentValues.put(FOOD_CATEGORY, food.getCategory());
+
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        return result != -1;
+    }
 
     public void dropAndSetRestaurant(List<Restaurant> restaurants) {
         SQLiteDatabase db = getWritableDatabase();
@@ -72,6 +94,32 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
         for (Restaurant restaurant : restaurants) {
             insertRestaurant(restaurant);
         }
+    }
+    public void dropAndSetMenu(List<Food> menu){
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
+        onCreate(db);
+        for(Food food : menu){
+            insertFoodIntoMenu(food);
+        }
+    }
+    public List<Food> getFoods(){
+        List<Food> menu = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
+        if(cursor.moveToFirst()){
+            do{
+                Food food = new Food(
+                        cursor.getInt(0),
+                        cursor.getString(1),
+                        cursor.getInt(2),
+                        cursor.getString(3),
+                        cursor.getString(4)
+                );
+                menu.add(food);
+            }while (cursor.moveToNext());
+        }cursor.close();
+        return menu;
     }
 
     public List<Restaurant> getAllRestaurants() {
