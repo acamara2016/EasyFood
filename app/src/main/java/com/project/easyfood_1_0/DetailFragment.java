@@ -20,8 +20,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.project.easyfood_1_0.entities.Food;
 import com.project.easyfood_1_0.entities.Restaurant;
+import com.project.easyfood_1_0.implementations.DummyRestaurantRetriever;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DetailFragment extends Fragment implements OnMapReadyCallback {
@@ -43,7 +48,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail_2, container, false);
         //SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        String[] foods={"Food1","Food2","Food3","Food4","Food5","Food6"};
+
         initViews(view);
         final Restaurant event = (Restaurant) getArguments().getSerializable("restaurant");
         Picasso.get().load(event.getImage()).fit().centerCrop().into(eventImageView);
@@ -52,10 +57,8 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
         restaurant_type.setText("$. African. Fast Food. Pizza");
 
         ListView simpleList;
-        String countryList[] = {"India", "China", "australia", "Portugle", "America", "NewZealand"};
-        int flags[] = {R.drawable.ic_star_black_24dp, R.drawable.ic_star_black_24dp, R.drawable.ic_star_black_24dp, R.drawable.ic_star_black_24dp, R.drawable.ic_star_black_24dp, R.drawable.ic_star_black_24dp};
         simpleList = (ListView) view.findViewById(R.id.simpleListView);
-        CustomListAdapter customAdapter = new CustomListAdapter(getContext(), countryList, flags);
+        CustomListAdapter customAdapter = new CustomListAdapter(getContext(), returnMenu());
         simpleList.setAdapter(customAdapter);
 
         /*mapFragment.getMapAsync(new OnMapReadyCallback() {
@@ -95,5 +98,22 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
+    }
+    public List<Food> returnMenu(){
+        List<Food> menu = new ArrayList<>();
+        String image0 = "https://www.google.com/search?q=Image+of+burgers&rlz=1C1LOQA_enCA896CA896&sxsrf=ALeKk00WQI8ShD7G-6yy-lPAF76Ux6HT6g:1588854936478&tbm=isch&source=iu&ictx=1&fir=P5k652d4fzAcNM%253A%252CdkmShPVYjDCcpM%252C_&vet=1&usg=AI4_-kT1u532JXOU_iQfrHWV8pQp93aDjw&sa=X&ved=2ahUKEwiD_9nw4aHpAhVDheAKHR6VBNMQ9QEwBHoECAsQKQ#imgrc=P5k652d4fzAcNM";
+        String image1 = "https://www.google.com/search?q=Image+of+burgers&rlz=1C1LOQA_enCA896CA896&sxsrf=ALeKk00WQI8ShD7G-6yy-lPAF76Ux6HT6g:1588854936478&tbm=isch&source=iu&ictx=1&fir=P5k652d4fzAcNM%253A%252CdkmShPVYjDCcpM%252C_&vet=1&usg=AI4_-kT1u532JXOU_iQfrHWV8pQp93aDjw&sa=X&ved=2ahUKEwiD_9nw4aHpAhVDheAKHR6VBNMQ9QEwBHoECAsQKQ#imgrc=TlmmHqkV_XO9IM";
+        String image2 = "https://www.google.com/search?q=Image+of+burgers&rlz=1C1LOQA_enCA896CA896&sxsrf=ALeKk00WQI8ShD7G-6yy-lPAF76Ux6HT6g:1588854936478&tbm=isch&source=iu&ictx=1&fir=P5k652d4fzAcNM%253A%252CdkmShPVYjDCcpM%252C_&vet=1&usg=AI4_-kT1u532JXOU_iQfrHWV8pQp93aDjw&sa=X&ved=2ahUKEwiD_9nw4aHpAhVDheAKHR6VBNMQ9QEwBHoECAsQKQ#imgrc=513pfmSMYjYJmM";
+        String image3 = "https://www.google.com/search?q=Image+of+burgers&rlz=1C1LOQA_enCA896CA896&sxsrf=ALeKk00WQI8ShD7G-6yy-lPAF76Ux6HT6g:1588854936478&tbm=isch&source=iu&ictx=1&fir=P5k652d4fzAcNM%253A%252CdkmShPVYjDCcpM%252C_&vet=1&usg=AI4_-kT1u532JXOU_iQfrHWV8pQp93aDjw&sa=X&ved=2ahUKEwiD_9nw4aHpAhVDheAKHR6VBNMQ9QEwBHoECAsQKQ#imgrc=-mb_6QxRRYBNXM";
+        menu.add(new Food(1,"Burgers",1500,image0,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image1,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image2,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image3,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image0,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image1,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image2,"Burger"));
+        menu.add(new Food(1,"Burgers",1500,image3,"Burger"));
+
+        return menu;
     }
 }
