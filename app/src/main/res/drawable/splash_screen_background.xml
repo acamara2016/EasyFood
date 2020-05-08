@@ -7,5 +7,5 @@
             android:gravity="center"
             android:src="@color/Yellow"/>
     </item>
-    
+
 </layer-list>

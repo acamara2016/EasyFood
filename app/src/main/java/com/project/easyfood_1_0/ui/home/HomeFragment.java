@@ -2,6 +2,7 @@ package com.project.easyfood_1_0.ui.home;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +18,21 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.project.easyfood_1_0.ListAdapter;
 import com.project.easyfood_1_0.R;
 import com.project.easyfood_1_0.entities.Restaurant;
+import com.project.easyfood_1_0.implementations.FirebaseHelper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class HomeFragment extends Fragment {
 
@@ -33,6 +44,9 @@ public class HomeFragment extends Fragment {
         homeViewModel = new HomeViewModel(getContext());
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final com.project.easyfood_1_0.ListAdapter listAdapter = new com.project.easyfood_1_0.ListAdapter();
+        FirebaseHelper db = new FirebaseHelper();
+        List<Restaurant> list = db.retrieveRestaurants();
+        System.out.println(list.size());
         //The following 5 lines are for the slideshow
         ViewFlipper simpleViewFlipper = (ViewFlipper) root.findViewById(R.id.newsViewFlipper); // get the reference of ViewFlipper
         ImageView imageView = new ImageView(this.getContext());
@@ -61,4 +75,6 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView2.setLayoutManager(layoutManager2);
     }
+
+
 }

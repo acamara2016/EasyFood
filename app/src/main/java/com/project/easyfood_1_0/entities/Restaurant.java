@@ -72,7 +72,7 @@ public class Restaurant implements Serializable {
     public String getImage(){return image;}
     public void setImage(String image){this.image=image;}
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
@@ -80,7 +80,7 @@ public class Restaurant implements Serializable {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
