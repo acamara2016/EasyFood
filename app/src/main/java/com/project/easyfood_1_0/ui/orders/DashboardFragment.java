@@ -1,4 +1,4 @@
-package com.project.easyfood_1_0.ui.dashboard;
+package com.project.easyfood_1_0.ui.orders;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

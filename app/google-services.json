@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "923264505663",
+    "firebase_url": "https://restaurant-213ab.firebaseio.com",
+    "project_id": "restaurant-213ab",
+    "storage_bucket": "restaurant-213ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923264505663:android:fcfebeff5ae7ed3eb8a58a",
+        "android_client_info": {
+          "package_name": "com.project.easyfood_1_0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923264505663-uge4stv4o542br3upcpros4kkhfpu06e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsq0i39ji6AMU7AjJreDmKt0ALkLlWHXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923264505663-uge4stv4o542br3upcpros4kkhfpu06e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

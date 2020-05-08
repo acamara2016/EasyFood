@@ -19,13 +19,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.project.easyfood_1_0.ui.dashboard.DashboardFragment"
+        android:name="com.project.easyfood_1_0.ui.orders.DashboardFragment"
         android:label="@string/title_orders"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.project.easyfood_1_0.ui.notifications.NotificationsFragment"
+        android:name="com.project.easyfood_1_0.ui.account.NotificationsFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_notifications" />
     <fragment
