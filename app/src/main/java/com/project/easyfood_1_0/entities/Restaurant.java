@@ -15,6 +15,25 @@ public class Restaurant implements Serializable {
     private double latitude;
     private double longitude;
 
+    public String getStreet_address() {
+        return street_address;
+    }
+
+    public void setStreet_address(String street_address) {
+        this.street_address = street_address;
+    }
+
+    private String street_address;
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    private String city;
+
     public String getType() {
         return type;
     }
@@ -111,7 +130,7 @@ public class Restaurant implements Serializable {
                 '}';
     }
 
-    public Restaurant(String name, String image, String username, String email, String phone_numb, String address, String id, String working_hours, double longitude, double latitude, String fr_description, String en_description, String rating, String type) {
+    public Restaurant(String name, String image, String username, String email, String phone_numb, String address, String id, String working_hours, double longitude, double latitude, String fr_description, String en_description, String rating, String type,String city,String street_address) {
         this.name = name;
         this.image = image;
         this.username = username;
@@ -126,6 +145,8 @@ public class Restaurant implements Serializable {
         this.en_description=en_description;
         this.rating=rating;
         this.type=type;
+        this.city =city;
+        this.street_address = street_address;
 
     }
 

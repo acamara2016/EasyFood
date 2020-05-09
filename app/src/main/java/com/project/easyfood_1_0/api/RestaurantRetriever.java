@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface RestaurantRetriever {
     public LiveData<List<Restaurant>> getRestaurants();
+
+    LiveData<List<Restaurant>> getRestaurantsBamako();
 }

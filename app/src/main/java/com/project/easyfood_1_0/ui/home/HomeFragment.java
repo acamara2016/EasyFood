@@ -1,12 +1,14 @@
 package com.project.easyfood_1_0.ui.home;
 
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -23,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.easyfood_1_0.BamakoListAdapter;
 import com.project.easyfood_1_0.ListAdapter;
 import com.project.easyfood_1_0.R;
 import com.project.easyfood_1_0.entities.Restaurant;
@@ -33,6 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
+import static java.lang.StrictMath.acos;
+import static java.lang.StrictMath.cos;
+import static java.lang.StrictMath.sin;
 
 public class HomeFragment extends Fragment {
 
@@ -44,6 +50,7 @@ public class HomeFragment extends Fragment {
         homeViewModel = new HomeViewModel(getContext());
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final com.project.easyfood_1_0.ListAdapter listAdapter = new com.project.easyfood_1_0.ListAdapter();
+        final com.project.easyfood_1_0.ListAdapter listAdapter2 = new com.project.easyfood_1_0.ListAdapter();
 
 
         //The following 5 lines are for the slideshow
@@ -52,23 +59,47 @@ public class HomeFragment extends Fragment {
         Drawable dr = getResources().getDrawable(R.drawable.ic_launcher_foreground);
         imageView.setImageDrawable(dr);
         simpleViewFlipper.addView(imageView);
-        initViews(root,listAdapter);
+        initViews(root,listAdapter,listAdapter2);
+
         homeViewModel.getRestaurants().observe(getViewLifecycleOwner(), new Observer<List<Restaurant>>() {
             @Override
             public void onChanged(List<Restaurant> restaurants) {
-                listAdapter.data = restaurants;
+                List<Restaurant> bamakoList = new ArrayList<>();
+
+                int x = 0;
+                while(restaurants.get(x).getCity()!=null){
+                    if(restaurants.get(x).getCity().equals("Bamako") & restaurants.get(x).getStreet_address()!=null)
+                        System.out.println(restaurants.get(x).getStreet_address());
+                    if(restaurants.get(x).getCity().equals("Bamako"))
+                        bamakoList.add(restaurants.get(x));
+                    x++;
+                }
+                listAdapter.data = bamakoList;
                 listAdapter.notifyDataSetChanged();
+
+                listAdapter2.data = bamakoList;
+                listAdapter2.notifyDataSetChanged();
             }
         });
 
         return root;
     }
 
-    private void initViews(View view, ListAdapter listAdapter){
+    public double getKilometers(double lat1, double long1, double lat2, double long2) {
+        double PI_RAD = Math.PI / 180.0;
+        double phi1 = lat1 * PI_RAD;
+        double phi2 = lat2 * PI_RAD;
+        double lam1 = long1 * PI_RAD;
+        double lam2 = long2 * PI_RAD;
+
+        return 6371.01 * acos(sin(phi1) * sin(phi2) + cos(phi1) * cos(phi2) * cos(lam2 - lam1));
+    }
+
+    private void initViews(View view, ListAdapter listAdapter, ListAdapter listAdapter2){
         recyclerView = view.findViewById(R.id.my_recycler_view);
         recyclerView2 = view.findViewById(R.id.my_recycler_view2);
-        recyclerView2.setAdapter(listAdapter);
         recyclerView.setAdapter(listAdapter);
+        recyclerView2.setAdapter(listAdapter2);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);

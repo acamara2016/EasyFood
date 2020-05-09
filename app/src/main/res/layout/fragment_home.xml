@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
-            android:text="Special Offers"
+            android:text="Around Bamako"
             android:textSize="25sp"
             android:layout_gravity="center"
             android:textStyle="bold" />
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Limited availability" />
+            android:text="Less than 10km" />
 
 
         <androidx.recyclerview.widget.RecyclerView

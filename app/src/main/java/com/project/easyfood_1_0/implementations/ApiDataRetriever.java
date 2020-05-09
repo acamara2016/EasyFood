@@ -50,6 +50,11 @@ public class ApiDataRetriever implements RestaurantRetriever {
         return events;
     }
 
+    @Override
+    public LiveData<List<Restaurant>> getRestaurantsBamako() {
+        return null;
+    }
+
     class EventApiResponseListener implements Response.Listener<JSONArray>, Response.ErrorListener {
         @Override
         public void onResponse(JSONArray response) {
@@ -78,7 +83,9 @@ public class ApiDataRetriever implements RestaurantRetriever {
                             "French description",
                             "English description",
                             jsonEvent.getString("rating"),
-                            jsonEvent.getString("type")
+                            jsonEvent.getString("type"),
+                            jsonEvent.getString("address_city"),
+                            jsonEvent.getString("address_street")
 
                     );
                     list.add(restaurant);
