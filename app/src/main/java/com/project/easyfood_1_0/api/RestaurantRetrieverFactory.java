@@ -7,6 +7,8 @@ import android.net.NetworkInfo;
 
 import com.project.easyfood_1_0.implementations.DatabaseRestaurantRetriever;
 import com.project.easyfood_1_0.implementations.DummyRestaurantRetriever;
+import com.project.easyfood_1_0.implementations.FirebaseDataRetriever;
+import com.project.easyfood_1_0.implementations.FirebaseHelper;
 
 public class RestaurantRetrieverFactory {
     private static final long FIVE_MINUTES_MILLIS = 300000;

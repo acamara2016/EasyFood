@@ -50,17 +50,24 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     public class ListViewHolder extends RecyclerView.ViewHolder {
         private TextView restaurant_name_View, eventDateDay, eventDateMonth, eventDescription;
         private ImageView eventImageView;
+        private TextView rating_view, type_view;
 
         private ListViewHolder(View itemView) {
             super(itemView);
             restaurant_name_View = itemView.findViewById(R.id.event_name_view);
             eventImageView = itemView.findViewById(R.id.event_image_view);
+            rating_view = itemView.findViewById(R.id.rating_view);
+            type_view = itemView.findViewById(R.id.event_category);
 
         }
 
         private void bindView(int position) {
             final Restaurant restaurant = data.get(position);
-
+            rating_view.setText(restaurant.getRating());
+            if(restaurant.getType()!=null)
+                type_view.setText(restaurant.getType());
+            else
+                type_view.setText("Null");
             restaurant_name_View.setText(restaurant.getName());
             //eventNameView.setText(event.getEventName());
             Picasso.get().load(restaurant.getImage()).fit().centerCrop().into(eventImageView);

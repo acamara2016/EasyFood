@@ -23,11 +23,11 @@ public class User {
         this.id = id;
     }
 
-    public String getId() {
+    public String getUID() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setUID(String id) {
         this.id = id;
     }
 
@@ -74,7 +74,7 @@ public class User {
     }
 
     public String toString(){
-        return ("ID: "+this.getId()+" Name: "+this.getFirst_name()+" "+this.getLast_name()+" Username: "+this.getUsername()+" Email: "+this.getEmail()+" Phone number: "+this.getPhone_numb()+" Address: "+this.getAddress());
+        return ("ID: "+this.getUID()+" Name: "+this.getFirst_name()+" "+this.getLast_name()+" Username: "+this.getUsername()+" Email: "+this.getEmail()+" Phone number: "+this.getPhone_numb()+" Address: "+this.getAddress());
     }
 
 

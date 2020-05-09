@@ -72,7 +72,7 @@ public class Restaurant implements Serializable {
     public String getImage(){return image;}
     public void setImage(String image){this.image=image;}
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
@@ -80,13 +80,35 @@ public class Restaurant implements Serializable {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
 
     public Restaurant(){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phone_numb='" + phone_numb + '\'' +
+                ", address='" + address + '\'' +
+                ", id='" + id + '\'' +
+                ", opening_time=" + opening_time +
+                ", closing_time=" + closing_time +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", type='" + type + '\'' +
+                ", rating='" + rating + '\'' +
+                ", working_hours='" + working_hours + '\'' +
+                ", image='" + image + '\'' +
+                ", fr_description='" + fr_description + '\'' +
+                ", en_description='" + en_description + '\'' +
+                '}';
     }
 
     public Restaurant(String name, String image, String username, String email, String phone_numb, String address, String id, String working_hours, double longitude, double latitude, String fr_description, String en_description, String rating, String type) {
