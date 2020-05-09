@@ -44,9 +44,8 @@ public class HomeFragment extends Fragment {
         homeViewModel = new HomeViewModel(getContext());
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         final com.project.easyfood_1_0.ListAdapter listAdapter = new com.project.easyfood_1_0.ListAdapter();
-        FirebaseHelper db = new FirebaseHelper();
-        List<Restaurant> list = db.retrieveRestaurants();
-        System.out.println(list.size());
+
+
         //The following 5 lines are for the slideshow
         ViewFlipper simpleViewFlipper = (ViewFlipper) root.findViewById(R.id.newsViewFlipper); // get the reference of ViewFlipper
         ImageView imageView = new ImageView(this.getContext());

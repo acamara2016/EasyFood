@@ -1,14 +1,18 @@
 package com.project.easyfood_1_0.implementations;
 
+import android.widget.ListView;
+
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.project.easyfood_1_0.entities.Food;
 import com.project.easyfood_1_0.entities.Restaurant;
 
 import java.text.SimpleDateFormat;
@@ -74,16 +78,17 @@ public class FirebaseHelper{
 
     public List<Restaurant> retrieveRestaurants() {
         ref = FirebaseDatabase.getInstance().getReference().child("Report");
-        final List<Restaurant> subslist = new ArrayList<Restaurant>();
+        final ArrayList<Restaurant> list = new ArrayList<Restaurant>();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
                 for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
                     Restaurant s = new Restaurant();
                    setRestaurantBasics(userSnapshot,s);
-                    System.out.println(s.getName());
-                    subslist.add(s);
+                    //System.out.println(s.toString());
+                    list.add(s);
                 }
+                System.out.println("---------------------------------"+list.size());
 
             }
 
@@ -92,7 +97,8 @@ public class FirebaseHelper{
 
             }
         });
-        return subslist;
+        System.out.println(list.size());
+        return list;
     }
 
 
