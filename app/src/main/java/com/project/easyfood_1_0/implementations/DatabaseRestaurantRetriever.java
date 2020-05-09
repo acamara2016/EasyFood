@@ -24,6 +24,12 @@ public class DatabaseRestaurantRetriever implements RestaurantRetriever {
         ///TODO Code this part when API finally set
         return null;
     }
+
+    @Override
+    public LiveData<List<Restaurant>> getRestaurantsBamako() {
+        return null;
+    }
+
     public LiveData<List<Food>> getFoods(){
         MutableLiveData<List<Food>> food = new MutableLiveData<>();
         food.setValue(db.getFoods());

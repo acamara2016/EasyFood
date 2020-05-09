@@ -43,7 +43,34 @@ public class DummyRestaurantRetriever implements RestaurantRetriever {
         });
         return data;
     }
+
+    @Override
+    public LiveData<List<Restaurant>> getRestaurantsBamako() {
+        final MutableLiveData<List<Restaurant>> data = new MutableLiveData<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Report");
+        final ArrayList<Restaurant> list = new ArrayList<Restaurant>();
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                    Restaurant s = new Restaurant();
+                    setRestaurantBasics(userSnapshot,s);
+                    //System.out.println(s.toString());
+                    list.add(s);
+                }
+                data.setValue(list);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        return data;
+    }
     public void setRestaurantBasics(DataSnapshot snapshot, Restaurant restaurant){
+        restaurant.setCity((String) snapshot.child("address_city").getValue());
         restaurant.setName((String) snapshot.child("name").getValue());
         restaurant.setAddress((String) snapshot.child("address").getValue());
         String tmp = (String) snapshot.child("latitude").getValue();

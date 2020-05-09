@@ -17,4 +17,12 @@ public class FirebaseDataRetriever implements RestaurantRetriever {
         listMutableLiveData.setValue(db.retrieveRestaurants());
         return listMutableLiveData;
     }
+
+    @Override
+    public LiveData<List<Restaurant>> getRestaurantsBamako() {
+        MutableLiveData<List<Restaurant>> listMutableLiveData = new MutableLiveData<>();
+        System.out.println(db.retrieveRestaurants().size());
+        listMutableLiveData.setValue(db.retrieveRestaurants());
+        return listMutableLiveData;
+    }
 }
