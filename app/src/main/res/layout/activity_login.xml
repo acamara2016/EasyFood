@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registration.login">
+
+    <Button
+        android:id="@+id/login_button_view"
+        android:layout_width="356dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="176dp"
+        android:background="@drawable/round_button_secondary"
+        android:elevation="1dp"
+        android:text="SIGN UP"
+        android:textColor="@color/Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/signup_button_view"
+        android:layout_width="356dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/round_button"
+        android:elevation="1dp"
+        android:text="Sign in"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/login_button_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="294dp"
+        android:layout_height="269dp"
+
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="168dp"
+        android:background="@mipmap/salad2_icon_foreground"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_view" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="73dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/common_google_signin_btn_icon_light_normal"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_view"
+        app:layout_constraintVertical_bias="0.364" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="334dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
+        android:foreground="@drawable/horizontal_line"
+        android:foregroundGravity="center_horizontal"
+        android:text="Or connect with"
+        android:textAlignment="textEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button_view" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="409dp"
+        android:layout_height="587dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_button_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/burger_icon_foreground" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

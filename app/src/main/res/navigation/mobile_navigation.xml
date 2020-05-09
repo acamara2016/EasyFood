@@ -33,4 +33,14 @@
         android:name="com.project.easyfood_1_0.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <activity
+        android:id="@+id/login"
+        android:name="com.project.easyfood_1_0.registration.login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/sign_in"
+        android:name="com.project.easyfood_1_0.sign_in"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" />
 </navigation>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.project.easyfood_1_0">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -13,8 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:theme="@style/registrationTheme"
+            android:name=".registration.login">
 
+        </activity>
+        <activity android:name=".registration.newUser"
+            android:theme="@style/registrationTheme"
+            android:parentActivityName=".registration.login"
+            >
+
+        </activity>
+        <activity
+            android:name=".registration.authentication"
+            android:theme="@style/registrationTheme"
+            android:parentActivityName=".registration.login"
+            >
+
+        </activity>
         <!--
+
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
              Note that the API key is linked to the encryption key used to sign the APK.
@@ -26,21 +45,22 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".SplashScreenActivity"
+        <activity
+            android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main">
-        </activity>
+            android:label="@string/title_activity_main"></activity>
+
     </application>
 
 </manifest>
