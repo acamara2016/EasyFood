@@ -1,6 +1,7 @@
 package com.project.easyfood_1_0.ui.home;
 
 import android.graphics.drawable.Drawable;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
+import static java.lang.StrictMath.acos;
+import static java.lang.StrictMath.cos;
+import static java.lang.StrictMath.sin;
 
 public class HomeFragment extends Fragment {
 
@@ -61,15 +65,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(List<Restaurant> restaurants) {
                 List<Restaurant> bamakoList = new ArrayList<>();
-                listAdapter.data = restaurants;
-                listAdapter.notifyDataSetChanged();
+
                 int x = 0;
                 while(restaurants.get(x).getCity()!=null){
+                    if(restaurants.get(x).getCity().equals("Bamako") & restaurants.get(x).getStreet_address()!=null)
+                        System.out.println(restaurants.get(x).getStreet_address());
                     if(restaurants.get(x).getCity().equals("Bamako"))
-                        System.out.println("YESSSSSSSSSSSSSSSS");
                         bamakoList.add(restaurants.get(x));
                     x++;
                 }
+                listAdapter.data = bamakoList;
+                listAdapter.notifyDataSetChanged();
+
                 listAdapter2.data = bamakoList;
                 listAdapter2.notifyDataSetChanged();
             }
@@ -78,16 +85,20 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    public double getKilometers(double lat1, double long1, double lat2, double long2) {
+        double PI_RAD = Math.PI / 180.0;
+        double phi1 = lat1 * PI_RAD;
+        double phi2 = lat2 * PI_RAD;
+        double lam1 = long1 * PI_RAD;
+        double lam2 = long2 * PI_RAD;
+
+        return 6371.01 * acos(sin(phi1) * sin(phi2) + cos(phi1) * cos(phi2) * cos(lam2 - lam1));
+    }
+
     private void initViews(View view, ListAdapter listAdapter, ListAdapter listAdapter2){
         recyclerView = view.findViewById(R.id.my_recycler_view);
         recyclerView2 = view.findViewById(R.id.my_recycler_view2);
         recyclerView.setAdapter(listAdapter);
-        //System.out.println(listAdapter.data.get(0).getAddress());
-        /*for(int i=0; i<600; i++){
-            if(listAdapter.data.get(i).getAddress()=="Bamako"){
-                System.out.println("--------------------");
-            }
-        }*/
         recyclerView2.setAdapter(listAdapter2);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);

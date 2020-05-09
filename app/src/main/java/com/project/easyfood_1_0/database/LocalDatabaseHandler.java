@@ -143,7 +143,8 @@ public class LocalDatabaseHandler extends SQLiteOpenHelper {
                         cursor.getString(11),
                         cursor.getString(12),
                         cursor.getString(13),
-                        cursor.getString(14));
+                        cursor.getString(14),
+                        cursor.getString(15));
                 restaurants.add(restaurant);
             }while(cursor.moveToNext());
         }cursor.close();

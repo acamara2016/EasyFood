@@ -84,7 +84,8 @@ public class ApiDataRetriever implements RestaurantRetriever {
                             "English description",
                             jsonEvent.getString("rating"),
                             jsonEvent.getString("type"),
-                            jsonEvent.getString("address_city")
+                            jsonEvent.getString("address_city"),
+                            jsonEvent.getString("address_street")
 
                     );
                     list.add(restaurant);

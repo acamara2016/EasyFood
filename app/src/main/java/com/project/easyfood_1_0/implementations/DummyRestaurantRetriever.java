@@ -70,6 +70,7 @@ public class DummyRestaurantRetriever implements RestaurantRetriever {
         return data;
     }
     public void setRestaurantBasics(DataSnapshot snapshot, Restaurant restaurant){
+        restaurant.setStreet_address((String) snapshot.child("address_street").getValue());
         restaurant.setCity((String) snapshot.child("address_city").getValue());
         restaurant.setName((String) snapshot.child("name").getValue());
         restaurant.setAddress((String) snapshot.child("address").getValue());
