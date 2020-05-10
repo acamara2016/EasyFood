@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.easyfood_1_0.entities.Food;
 import com.project.easyfood_1_0.entities.Restaurant;
+import com.project.easyfood_1_0.entities.User;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,6 +54,12 @@ public class FirebaseHelper{
         return sdf.format(cal.getTime());
     }
 
+    public void storeNewUser(User u){
+        ref.child("users").child(u.getUID()).setValue(u);
+    }
+
+
+
     public void setRestaurantBasics(DataSnapshot snapshot, Restaurant restaurant){
         restaurant.setName((String) snapshot.child("name").getValue());
         restaurant.setAddress((String) snapshot.child("address").getValue());
@@ -88,7 +96,7 @@ public class FirebaseHelper{
                     //System.out.println(s.toString());
                     list.add(s);
                 }
-                System.out.println("---------------------------------"+list.size());
+                //System.out.println("---------------------------------"+list.size());
 
             }
 
@@ -97,7 +105,7 @@ public class FirebaseHelper{
 
             }
         });
-        System.out.println(list.size());
+        //System.out.println(list.size());
         return list;
     }
 

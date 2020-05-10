@@ -12,6 +12,10 @@
         <item name="android:windowBackground">@color/Yellow</item>
 
     </style>
+    <style name="registrationTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+
+    </style>
 
     
 
