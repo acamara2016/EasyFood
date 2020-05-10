@@ -35,14 +35,15 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center"
             android:queryHint="Search restaurant by their names" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:text="Around Bamako"
-            android:textSize="25sp"
             android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:text="African"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -50,12 +51,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Less than 10km" />
+            android:text="Less than 1km" />
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_recycler_view"
-            android:layout_width="411dp"
+            android:id="@+id/african_view"
+            android:layout_width="match_parent"
             android:layout_height="494dp"
             android:layout_gravity="center" />
 
@@ -64,10 +65,10 @@
             android:id="@+id/label2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Burgers"
-            android:textSize="25sp"
             android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Fast Food"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -78,19 +79,121 @@
             android:text="10 min delivery time" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_recycler_view2"
+            android:id="@+id/fast_food_view"
+            android:layout_width="match_parent"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Cafe" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cafe_view"
+            android:layout_width="411dp"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/restaurant_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Restaurants" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/restaurant_view"
+            android:layout_width="411dp"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/ice_cream_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Ice Cream" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Ice_cream_view"
+            android:layout_width="411dp"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/grill_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Grill" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grill_view"
+            android:layout_width="411dp"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/chinese_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Chinese" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chinese_view"
+            android:layout_width="411dp"
+            android:layout_height="494dp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/bakery_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Bakery" />
+
+        <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/bakery_view"
+        android:layout_width="411dp"
+        android:layout_height="494dp"
+        android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/thai_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="Thai" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/thai_view"
             android:layout_width="411dp"
             android:layout_height="494dp"
             android:layout_gravity="center" />
 
 
-        <com.google.android.gms.common.SignInButton
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="200dp"
-            android:layout_marginTop="200dp">
-
-        </com.google.android.gms.common.SignInButton>
     </LinearLayout>
 </ScrollView>

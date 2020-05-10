@@ -9,11 +9,30 @@ public class User {
     private String address;
     private String id;
 
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    private String latitude;
+    private String longitude;
+
     public User(){
 
     }
 
-    public User(String first_name, String last_name, String username, String email, String phone_numb, String address, String id) {
+    public User(String first_name, String last_name, String username, String email, String phone_numb, String address, String id, String latitude, String longitude) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.username = username;
@@ -21,6 +40,8 @@ public class User {
         this.phone_numb = phone_numb;
         this.address = address;
         this.id = id;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getUID() {

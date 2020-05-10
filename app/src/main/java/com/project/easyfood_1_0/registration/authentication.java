@@ -31,20 +31,27 @@ public class authentication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentication);
         mAuth = FirebaseAuth.getInstance();
-        login = findViewById(R.id.signup_button_view);
+        login = findViewById(R.id.signin_button_view);
         email = findViewById(R.id.authentication_email_view);
-        passowrd = findViewById(R.id.authentication_password_view);
+        passowrd = findViewById(R.id.resest_email_view);
         forgot_password = findViewById(R.id.authentication_forget_password);
         //Accessing the values
-        emailValue = email.toString();
-        passwordValue = passowrd.toString();
+        emailValue = email.getText().toString();
+        passwordValue = passowrd.getText().toString();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                emailValue = email.toString();
-                passwordValue = passowrd.toString();
+                emailValue = email.getText().toString();
+                passwordValue = passowrd.getText().toString();
                 Authenticate(emailValue,passwordValue);
+            }
+        });
+
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(authentication.this,forgot_password.class));
             }
         });
 

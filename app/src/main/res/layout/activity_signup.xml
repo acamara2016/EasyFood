@@ -7,77 +7,51 @@
     tools:context=".registration.login">
 
     <Button
-        android:id="@+id/signup_button_view"
+        android:id="@+id/new_user_signup_button_view"
         android:layout_width="356dp"
         android:layout_height="57dp"
         android:layout_marginTop="16dp"
 
         android:background="@drawable/round_button"
         android:elevation="1dp"
-        android:text="Sign in"
+        android:text="Sign Up"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_password_confirm_view" />
+        app:layout_constraintTop_toBottomOf="@+id/signup_password_confirm_view">
+
+    </Button>
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="294dp"
         android:layout_height="269dp"
 
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="164dp"
+        android:layout_marginEnd="176dp"
         android:background="@mipmap/salad2_icon_foreground"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button_view" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="73dp"
-        android:layout_height="53dp"
-        android:layout_marginEnd="94dp"
-        android:layout_marginBottom="52dp"
-        android:background="@drawable/common_google_signin_btn_icon_light_normal"
-        android:elevation="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="346dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="44dp"
-        android:foreground="@drawable/horizontal_line"
-        android:foregroundGravity="center_horizontal"
-        android:text="Or connect with"
-        android:textAlignment="textEnd"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button_view" />
+        app:layout_constraintTop_toBottomOf="@+id/new_user_signup_button_view" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="147dp"
         android:layout_height="56dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="104dp"
         android:text="Sign Up"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/signup_email_view"
+        android:id="@+id/new_user_signup_email_view"
         android:layout_width="356dp"
         android:layout_height="57dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_button_secondary"
         android:ems="10"
         android:foregroundGravity="left"
@@ -87,7 +61,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
         android:id="@+id/signup_password_view"
@@ -102,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_email_view" />
+        app:layout_constraintTop_toBottomOf="@+id/new_user_signup_email_view" />
 
     <EditText
         android:id="@+id/signup_password_confirm_view"
@@ -119,17 +93,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signup_password_view" />
 
-    <TextView
-        android:id="@+id/signup_forget_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:clickable="true"
-        android:text="Forgot password?"
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="356dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/round_button_secondary"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button_view" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
