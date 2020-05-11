@@ -1,5 +1,6 @@
 package com.project.easyfood_1_0.ui.account;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -37,10 +40,13 @@ public class NotificationsFragment extends Fragment {
         logout = root.findViewById(R.id.logout_button);
         mAuth = FirebaseAuth.getInstance();
         usernameView = root.findViewById(R.id.account_username);
+
+
         emailView = root.findViewById(R.id.account_email);
         final FirebaseUser user = mAuth.getCurrentUser();
 
-        ref = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
+        if(user.getUid()!=null)
+            ref = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
         ref.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override
             public void onDataChange(@NonNull com.google.firebase.database.DataSnapshot dataSnapshot) {
@@ -70,5 +76,15 @@ public class NotificationsFragment extends Fragment {
             }
         });
         return root;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
 }
