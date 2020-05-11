@@ -46,6 +46,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private RecyclerView recyclerView1;
+    private TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
     private RecyclerView recyclerView2, recyclerView3, recyclerView4, recyclerView5, recyclerView6, recyclerView7, recyclerView8, recyclerView9;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -105,28 +106,38 @@ public class HomeFragment extends Fragment {
 
                         int x = 0;
                         while(restaurants.get(x).getCity()!=null){
-                            System.out.println("Types here "+restaurants.get(x).getType());
+                            //System.out.println("Types here "+restaurants.get(x).getType());
                             //TODO replace the hardcoded value into latitude and longitude
                             double distance = getKilometers(12.6340419,-8.0277175,restaurants.get(x).getLatitude(),restaurants.get(x).getLongitude());
 
-                            if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Bakery") || restaurants.get(x).getType().equals("Cafe"))) {
+                            if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Bakery") || restaurants.get(x).getType().equals("Bakery"))) {
                                 bakeryList.add(restaurants.get(x));
+                                showRecyclerView(recyclerView1,textView1,root);
                             }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Cafe") || restaurants.get(x).getType().equals("Cafe"))) {
                                 cafeList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("African") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView2,textView2,root);
+                                System.out.println("Cafe found");
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("African") || restaurants.get(x).getType().equals("African"))) {
                                 africanList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Fast") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView3,textView3,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Fast") || restaurants.get(x).getType().equals("Fast"))) {
                                 fast_foodList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Restaurant") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView4,textView4,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Restaurant") || restaurants.get(x).getType().equals("Restaurant"))) {
                                 restaurants.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Ice") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView5,textView5,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("Ice") || restaurants.get(x).getType().equals("Ice"))) {
                                 ice_creamList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("grill") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView6,textView6,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("grill") || restaurants.get(x).getType().equals("grill"))) {
                                 grillList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("chinese") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView7,textView7,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("chinese") || restaurants.get(x).getType().equals("chinese"))) {
                                 chineseList.add(restaurants.get(x));
-                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("thai") || restaurants.get(x).getType().equals("Cafe"))) {
+                                showRecyclerView(recyclerView8,textView8,root);
+                            }else if(restaurants.get(x).getType()!=null && (restaurants.get(x).getType().contains("thai") || restaurants.get(x).getType().equals("thai"))) {
                                 thaiList.add(restaurants.get(x));
+                                showRecyclerView(recyclerView9,textView9,root);
                             }
                             x++;
                         }
@@ -192,9 +203,15 @@ public class HomeFragment extends Fragment {
         recyclerView8 = view.findViewById(R.id.bakery_view);
         recyclerView9 = view.findViewById(R.id.thai_view);
 
-
-
-
+        textView1 = view.findViewById(R.id.african_label);
+        textView2 = view.findViewById(R.id.fast_food_label);
+        textView3 = view.findViewById(R.id.cafe_label);
+        textView4 = view.findViewById(R.id.restaurant_label);
+        textView5 = view.findViewById(R.id.ice_cream_label);
+        textView6 = view.findViewById(R.id.grill_label);
+        textView7 = view.findViewById(R.id.chinese_label);
+        textView8 = view.findViewById(R.id.bakery_label);
+        textView9 = view.findViewById(R.id.thai_label);
 
 
         recyclerView1.setAdapter(african);
@@ -207,10 +224,55 @@ public class HomeFragment extends Fragment {
         recyclerView8.setAdapter(bakery);
         recyclerView9.setAdapter(thai);
 
+        /*if(african.data.isEmpty())
+            recyclerView1.setAlpha(0);
+        if(fast_food.data.isEmpty()){
+            recyclerView2.setAlpha(0);
+        }
+        if(cafe.data.isEmpty()){
+            recyclerView3.setAlpha(0);
+        }
+        if(restaurant.data.isEmpty()){
+            recyclerView4.setAlpha(0);
+        }
+        if(ice_cream.data.isEmpty()){
+            recyclerView5.setAlpha(0);
+        }
+        if(grill.data.isEmpty()){
+            recyclerView6.setAlpha(0);
+        }
+        if(chinese.data.isEmpty()){
+            recyclerView7.setAlpha(0);
+        }
+        if(bakery.data.isEmpty()){
+            recyclerView8.setAlpha(0);
+        }
+        if(thai.data.isEmpty()){
+            recyclerView9.setAlpha(0);
+        }*/
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager3 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager4 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager5 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager6 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager7 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager8 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager9 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView1.setLayoutManager(layoutManager);
         recyclerView2.setLayoutManager(layoutManager2);
+        recyclerView3.setLayoutManager(layoutManager3);
+        recyclerView4.setLayoutManager(layoutManager4);
+        recyclerView5.setLayoutManager(layoutManager5);
+        recyclerView6.setLayoutManager(layoutManager6);
+        recyclerView7.setLayoutManager(layoutManager7);
+        recyclerView8.setLayoutManager(layoutManager8);
+        recyclerView9.setLayoutManager(layoutManager9);
+    }
+    public void showRecyclerView(RecyclerView recyclerView, TextView textView, View view){
+        recyclerView.setVisibility(View.VISIBLE);
+        textView.setVisibility(view.VISIBLE);
     }
 
 
