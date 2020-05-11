@@ -86,8 +86,18 @@
             android:id="@+id/simpleListView"
             android:layout_width="363dp"
             android:layout_height="500dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="8dp"
             android:nestedScrollingEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView2" />
+
+        <SearchView
+            android:id="@+id/searchView2"
+            android:layout_width="360dp"
+            android:queryHint="Search food in the menu"
+            android:layout_height="45dp"
+            app:layout_constraintBottom_toTopOf="@+id/simpleListView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view2" />

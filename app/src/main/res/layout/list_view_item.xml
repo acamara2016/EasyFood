@@ -5,16 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="20dp"
-    android:elevation="2dp"
     android:background="@color/white"
+    android:elevation="2dp"
     android:outlineAmbientShadowColor="@color/background"
     android:theme="@style/CardView.Dark">
 
 
     <ImageView
         android:id="@+id/event_image_view"
-        android:layout_width="340dp"
-        android:layout_height="230dp"
+        android:layout_width="335dp"
+        android:layout_height="162dp"
         android:layout_marginTop="16dp"
         android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,9 +24,8 @@
 
     <TextView
         android:id="@+id/event_name_view"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="287dp"
+        android:layout_height="49dp"
         android:foregroundGravity="center"
         android:gravity="start|center"
         android:maxLines="3"
@@ -36,7 +35,7 @@
         android:textColor="@color/Black"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/event_image_view"
         tools:text="Wine and Cheese Tasting" />
@@ -56,8 +55,7 @@
         android:id="@+id/duration_view"
         android:layout_width="75dp"
         android:layout_height="28dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="8dp"
         android:background="@color/background"
         android:gravity="center"
@@ -85,10 +83,8 @@
         android:id="@+id/delivery_fee_view"
         android:layout_width="144dp"
         android:layout_height="25dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="192dp"
-        android:layout_marginRight="192dp"
         android:layout_marginBottom="20dp"
         android:background="@color/background"
         android:gravity="center"
@@ -111,18 +107,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/rating_view"
         app:layout_constraintTop_toBottomOf="@+id/event_category"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.466" />
 
     <TextView
         android:id="@+id/textureView"
         android:layout_width="49dp"
         android:layout_height="46dp"
-        android:layout_marginBottom="36dp"
         android:foreground="@drawable/ic_favorite_border_black_24dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/event_name_view"
         app:layout_constraintEnd_toEndOf="@+id/event_image_view"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/event_image_view" />
 
 
