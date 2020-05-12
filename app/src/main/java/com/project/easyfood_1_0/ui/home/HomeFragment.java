@@ -1,5 +1,6 @@
 package com.project.easyfood_1_0.ui.home;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.easyfood_1_0.BamakoListAdapter;
 import com.project.easyfood_1_0.ListAdapter;
+import com.project.easyfood_1_0.MapsActivity;
 import com.project.easyfood_1_0.R;
 import com.project.easyfood_1_0.entities.Restaurant;
 import com.project.easyfood_1_0.implementations.FirebaseHelper;
@@ -46,6 +49,7 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private RecyclerView recyclerView1;
+    private ImageView goto_map_view;
     private TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
     private RecyclerView recyclerView2, recyclerView3, recyclerView4, recyclerView5, recyclerView6, recyclerView7, recyclerView8, recyclerView9;
     DatabaseReference ref;
@@ -66,6 +70,7 @@ public class HomeFragment extends Fragment {
         final com.project.easyfood_1_0.ListAdapter thai = new com.project.easyfood_1_0.ListAdapter();
         mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
+
 
 
 
@@ -101,8 +106,12 @@ public class HomeFragment extends Fragment {
                 ref.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String latitude = dataSnapshot.child("latitude").getValue().toString();
-                        String longitude = dataSnapshot.child("longitude").getValue().toString();
+                        String latitude = null;
+                        String longitude = null;
+                        if(dataSnapshot.child("latitude").getValue().toString()!=null) {
+                            latitude = dataSnapshot.child("latitude").getValue().toString();
+                            longitude = dataSnapshot.child("longitude").getValue().toString();
+                        }
 
                         int x = 0;
                         while(restaurants.get(x).getCity()!=null){

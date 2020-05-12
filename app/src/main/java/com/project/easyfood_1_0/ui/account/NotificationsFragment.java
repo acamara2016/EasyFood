@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.easyfood_1_0.R;
+import com.project.easyfood_1_0.registration.authentication;
 import com.project.easyfood_1_0.registration.login;
 
 public class NotificationsFragment extends Fragment {
@@ -66,7 +67,7 @@ public class NotificationsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                startActivity(new Intent(getActivity(), login.class));
+                startActivity(new Intent(getActivity(), authentication.class));
             }
         });
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

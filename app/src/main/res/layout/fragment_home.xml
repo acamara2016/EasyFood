@@ -14,12 +14,12 @@
 
         <ViewFlipper
             android:id="@+id/newsViewFlipper"
-            android:layout_width="348dp"
-            android:layout_height="166dp"
+            android:layout_width="287dp"
+            android:layout_height="146dp"
             android:layout_gravity="center"
             android:layout_marginBottom="9dp"
             android:autoStart="true"
-            android:background="@color/cardview_dark_background"
+            android:background="@mipmap/slider1"
             android:elevation="2dp"
             android:flipInterval="3000"
             android:foregroundGravity="center"
@@ -52,10 +52,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/african_view"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="494dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <TextView
 
@@ -80,9 +80,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/fast_food_view"
             android:layout_width="match_parent"
-            android:visibility="gone"
             android:layout_height="494dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/cafe_label"
