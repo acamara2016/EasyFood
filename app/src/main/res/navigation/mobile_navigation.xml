@@ -15,32 +15,97 @@
             app:destination="@id/detailFragment"
             app:enterAnim="@anim/fragment_fade_enter"
             app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_navigation_home_to_address"
+            app:destination="@id/address" />
+        <action
+            android:id="@+id/action_navigation_home_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.project.easyfood_1_0.ui.orders.DashboardFragment"
         android:label="@string/title_orders"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_address"
+            app:destination="@id/address" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.project.easyfood_1_0.ui.account.NotificationsFragment"
         android:label="@string/title_account"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_navigation_notifications_to_address"
+            app:destination="@id/address" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_help_fragment"
+            app:destination="@id/help_fragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_setting_fragment"
+            app:destination="@id/setting_fragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_favorite_fragment"
+            app:destination="@id/favorite_fragment" />
+        <action
+            android:id="@+id/action_navigation_notifications_to_wallet_fragment"
+            app:destination="@id/wallet_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.project.easyfood_1_0.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_selected_food_details2"
+            app:destination="@id/selected_food_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/address" />
+    </fragment>
     <activity
         android:id="@+id/login"
         android:name="com.project.easyfood_1_0.registration.login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
     <fragment
-        android:id="@+id/sign_in"
-        android:name="com.project.easyfood_1_0.sign_in"
-        android:label="fragment_sign_in"
-        tools:layout="@layout/fragment_sign_in" />
+        android:id="@+id/selected_food_details"
+        android:name="com.project.easyfood_1_0.selected_food_details"
+        android:label="fragment_selected_food_details"
+        tools:layout="@layout/fragment_selected_food_details" />
+    <fragment
+        android:id="@+id/address"
+        android:name="com.project.easyfood_1_0.address"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" />
+    <fragment
+        android:id="@+id/help_fragment"
+        android:name="com.project.easyfood_1_0.help_fragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/setting_fragment"
+        android:name="com.project.easyfood_1_0.setting_fragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/favorite_fragment"
+        android:name="com.project.easyfood_1_0.favorite_fragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/wallet_fragment"
+        android:name="com.project.easyfood_1_0.wallet_fragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" />
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.project.easyfood_1_0.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>

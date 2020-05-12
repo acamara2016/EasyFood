@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:layout_height="70dp">
+
+    <Button
+        android:layout_width="375dp"
+        android:text="Add to Cart"
+        android:background="@color/colorPrimary"
+        android:layout_height="60dp">
+    </Button>
+
+</androidx.appcompat.widget.Toolbar>

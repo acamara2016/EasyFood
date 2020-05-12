@@ -8,5 +8,6 @@
     <color name="Black">#000000</color>
     <color name="background">#f6eee2</color>
     <color name="secondary_button">#f6eee2</color>
+    <color name="red">#FF0000</color>
 
 </resources>

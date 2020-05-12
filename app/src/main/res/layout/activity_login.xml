@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".registration.login">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="146dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="328dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/bogolan_foreground" />
+
     <Button
         android:id="@+id/signup_button_view"
         android:layout_width="356dp"
@@ -75,14 +84,14 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="409dp"
-        android:layout_height="587dp"
+        android:layout_width="391dp"
+        android:layout_height="554dp"
         android:layout_marginEnd="2dp"
-        app:layout_constraintBottom_toBottomOf="@+id/signup_button_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/burger_icon_foreground" />
+        app:srcCompat="@mipmap/burger_icon_foreground"
+        tools:layout_editor_absoluteY="65dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

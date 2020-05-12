@@ -37,30 +37,32 @@ public class newUser extends AppCompatActivity {
     private static final int PERMISSION_ID = 44;
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private Button register;
-    private EditText email, username, passowrd;
+    private EditText email, username, passowrd, phone;
     private FirebaseAuth mAuth;
-    protected String emailValue, passwordValue, usernameValue;
+    private TextView register, gotoLogin;
+    protected String emailValue, passwordValue, usernameValue, phoneNumberValue;
     private double latitude, longitude;
     private FirebaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_signup2);
         mAuth = FirebaseAuth.getInstance();
         db = new FirebaseHelper();
 
-        register = findViewById(R.id.new_user_signup_button_view);
+        register = findViewById(R.id.new_user_signup_btn_view);
         email = findViewById(R.id.new_user_signup_email_view);
-        username = findViewById(R.id.username);
-        passowrd = findViewById(R.id.signup_password_view);
+        username = findViewById(R.id.new_user_username);
+        passowrd = findViewById(R.id.new_user_password);
+        phone = findViewById(R.id.mobphone);
+        gotoLogin = findViewById(R.id.goto_login);
 
         email.getText().toString();
         emailValue = email.getText().toString();
         passwordValue = passowrd.getText().toString();
         usernameValue = username.getText().toString();
-        System.out.println(emailValue+" "+passwordValue+" "+usernameValue);
+        phoneNumberValue = phone.getText().toString();
 
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -71,9 +73,15 @@ public class newUser extends AppCompatActivity {
                 emailValue = email.getText().toString();
                 passwordValue = passowrd.getText().toString();
                 usernameValue = username.getText().toString();
+                phoneNumberValue = phone.getText().toString();
                 configureButton();
-                System.out.println(emailValue+" "+passwordValue+" "+usernameValue);
-                Authenticate(emailValue, passwordValue);
+                Authenticate(emailValue, passwordValue,phoneNumberValue);
+            }
+        });
+        gotoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(newUser.this,authentication.class));
             }
         });
         locationListener = new LocationListener() {
@@ -159,7 +167,7 @@ public class newUser extends AppCompatActivity {
         }
     }
 
-    private void Authenticate(String email, String password){
+    private void Authenticate(String email, String password,String phoneNumber){
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override

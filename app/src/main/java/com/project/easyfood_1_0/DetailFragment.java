@@ -1,17 +1,22 @@
 package com.project.easyfood_1_0;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,6 +45,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     private TextView frenchCostView;
     private TextView englishCostView;
     private TextView delivery_estimate;
+    private Button show_map_click;
     private TextView restaurant_type;
     private ListView listView;
 
@@ -55,12 +61,37 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
         eventTitleView.setText(event.getName());
         delivery_estimate.setText("5-10 MIN");
         restaurant_type.setText("$. African. Fast Food. Pizza");
+        show_map_click = view.findViewById(R.id.show_map);
 
-        ListView simpleList;
+        final ListView simpleList;
         simpleList = (ListView) view.findViewById(R.id.simpleListView);
-        CustomListAdapter customAdapter = new CustomListAdapter(getContext(), returnMenu());
+        final CustomListAdapter customAdapter = new CustomListAdapter(getContext(), returnMenu());
         simpleList.setAdapter(customAdapter);
 
+        simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Bundle bundle = new Bundle();
+                bundle.putSerializable("restaurant", returnMenu().get(0));
+
+                Navigation.findNavController(simpleList)
+                        .navigate(R.id.action_detailFragment_to_selected_food_details2, bundle);
+
+            }
+        });
+
+        show_map_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MapsActivity.class);
+                intent.putExtra("latitude",event.getLatitude());
+                intent.putExtra("image",event.getImage());
+                intent.putExtra("longitude",event.getLongitude());
+                intent.putExtra("phone", event.getPhone_numb());
+                intent.putExtra("restaurant_name",event.getName());
+                startActivity(intent);
+            }
+        });
         /*mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
@@ -94,6 +125,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
         listView=view.findViewById(R.id.food_listing);
 
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {

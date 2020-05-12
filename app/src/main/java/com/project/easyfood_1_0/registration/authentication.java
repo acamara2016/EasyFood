@@ -21,20 +21,22 @@ import com.project.easyfood_1_0.R;
 
 public class authentication extends AppCompatActivity {
     private static final String TAG = "Issue";
-    private Button login;
+    private TextView login;
     private Button signup;
     private TextView email, forgot_password, passowrd;
     private FirebaseAuth mAuth;
     protected String emailValue, passwordValue;
+    private TextView go_to_signUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_authentication);
+        setContentView(R.layout.activity_login2);
         mAuth = FirebaseAuth.getInstance();
         login = findViewById(R.id.signin_button_view);
         email = findViewById(R.id.authentication_email_view);
-        passowrd = findViewById(R.id.resest_email_view);
+        passowrd = findViewById(R.id.authentication_password);
         forgot_password = findViewById(R.id.authentication_forget_password);
+        go_to_signUp = findViewById(R.id.go_to_sign_up_view);
         //Accessing the values
         emailValue = email.getText().toString();
         passwordValue = passowrd.getText().toString();
@@ -45,6 +47,13 @@ public class authentication extends AppCompatActivity {
                 emailValue = email.getText().toString();
                 passwordValue = passowrd.getText().toString();
                 Authenticate(emailValue,passwordValue);
+            }
+        });
+
+        go_to_signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(authentication.this,newUser.class));
             }
         });
 
