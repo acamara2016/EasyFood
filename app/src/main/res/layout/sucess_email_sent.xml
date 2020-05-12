@@ -7,38 +7,40 @@
     tools:context=".registration.login">
 
     <Button
-        android:id="@+id/signin_button_view"
+        android:id="@+id/reset_btn_2"
         android:layout_width="209dp"
         android:layout_height="216dp"
-
+        android:foreground="@drawable/ic_check_black_24dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/confirmed_circle"
         android:elevation="1dp"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="281dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="147dp"
+        android:layout_width="196dp"
         android:layout_height="56dp"
         android:layout_marginTop="192dp"
-        android:text="Sign in"
+        android:text="Email Sent"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/done"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/signup_button_view"
-        app:layout_constraintEnd_toEndOf="@+id/signup_button_view"
-        app:layout_constraintStart_toStartOf="@+id/signup_button_view"
-        app:layout_constraintTop_toTopOf="@+id/signup_button_view"
-        app:srcCompat="@drawable/avd_done" />
+        android:layout_width="116dp"
+        android:layout_height="131dp"
+        app:layout_constraintBottom_toBottomOf="@+id/reset_btn_2"
+        app:layout_constraintEnd_toEndOf="@+id/reset_btn_2"
+        app:layout_constraintStart_toStartOf="@+id/reset_btn_2"
+        app:layout_constraintTop_toTopOf="@+id/reset_btn_2"
+        app:srcCompat="@drawable/ic_check_black_24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

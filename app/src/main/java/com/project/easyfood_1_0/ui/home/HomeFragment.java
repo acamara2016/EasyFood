@@ -224,32 +224,6 @@ public class HomeFragment extends Fragment {
         recyclerView8.setAdapter(bakery);
         recyclerView9.setAdapter(thai);
 
-        /*if(african.data.isEmpty())
-            recyclerView1.setAlpha(0);
-        if(fast_food.data.isEmpty()){
-            recyclerView2.setAlpha(0);
-        }
-        if(cafe.data.isEmpty()){
-            recyclerView3.setAlpha(0);
-        }
-        if(restaurant.data.isEmpty()){
-            recyclerView4.setAlpha(0);
-        }
-        if(ice_cream.data.isEmpty()){
-            recyclerView5.setAlpha(0);
-        }
-        if(grill.data.isEmpty()){
-            recyclerView6.setAlpha(0);
-        }
-        if(chinese.data.isEmpty()){
-            recyclerView7.setAlpha(0);
-        }
-        if(bakery.data.isEmpty()){
-            recyclerView8.setAlpha(0);
-        }
-        if(thai.data.isEmpty()){
-            recyclerView9.setAlpha(0);
-        }*/
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(this.getActivity(), LinearLayoutManager.HORIZONTAL, false);

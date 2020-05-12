@@ -22,9 +22,8 @@ public class email_sucess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sucess_email_sent);
-        back_tologin = findViewById(R.id.signup_button_view);
+        back_tologin = findViewById(R.id.reset_btn_2);
         done = findViewById(R.id.done);
-        back_tologin = findViewById(R.id.signup_button_view);
 
         this.getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE|

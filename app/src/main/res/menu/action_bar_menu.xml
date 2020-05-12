@@ -6,8 +6,12 @@
     <item
         android:id="@+id/action_favorite"
         android:icon="@drawable/ic_edit_location_black_24dp"
-        android:title="5252 Tobin Street"
+        android:title="Address"
         app:showAsAction="ifRoom"/>
 
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_settings"
+        android:title="Setting"
+        app:showAsAction="never"/>
 
 </menu>
