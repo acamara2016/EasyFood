@@ -9,5 +9,6 @@
     <color name="background">#f6eee2</color>
     <color name="secondary_button">#f6eee2</color>
     <color name="red">#FF0000</color>
+    <color name="main_background">#c6ab67</color>
 
 </resources>

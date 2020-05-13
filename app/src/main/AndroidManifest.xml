@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,26 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".MainActivity3" />
         <activity
-            android:theme="@style/registrationTheme"
-            android:name=".registration.login">
-
-        </activity>
-        <activity android:name=".registration.newUser"
-            android:theme="@style/registrationTheme"
+            android:name=".registration.login"
+            android:theme="@style/registrationTheme" />
+        <activity
+            android:name=".registration.newUser"
             android:parentActivityName=".registration.login"
-            >
-
-        </activity>
+            android:theme="@style/registrationTheme" />
         <activity
             android:name=".registration.authentication"
-            android:theme="@style/registrationTheme"
             android:parentActivityName=".registration.login"
-            >
-
-        </activity>
+            android:theme="@style/registrationTheme" />
         <!--
-
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
              Note that the API key is linked to the encryption key used to sign the APK.
@@ -55,22 +49,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".registration.forgot_password"
-            android:theme="@style/registrationTheme"
-            android:parentActivityName=".registration.authentication"></activity>
-        <activity android:name=".registration.email_sucess"
-            android:theme="@style/registrationTheme"
-            android:parentActivityName=".registration.forgot_password">
-
-        </activity>
+        <activity
+            android:name=".registration.forgot_password"
+            android:parentActivityName=".registration.authentication"
+            android:theme="@style/registrationTheme" />
+        <activity
+            android:name=".registration.email_sucess"
+            android:parentActivityName=".registration.forgot_password"
+            android:theme="@style/registrationTheme" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/registrationTheme"
-            android:label="@string/title_activity_main"></activity>
-
+            android:label="@string/title_activity_main"
+            android:theme="@style/registrationTheme" />
     </application>
 
 </manifest>

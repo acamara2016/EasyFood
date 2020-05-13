@@ -9,11 +9,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.felipecsl.gifimageview.library.GifImageView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +33,11 @@ import com.project.easyfood_1_0.MainActivity;
 import com.project.easyfood_1_0.R;
 import com.project.easyfood_1_0.entities.User;
 import com.project.easyfood_1_0.implementations.FirebaseHelper;
+
+import org.apache.commons.io.IOUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class newUser extends AppCompatActivity {
 
@@ -43,6 +51,8 @@ public class newUser extends AppCompatActivity {
     protected String emailValue, passwordValue, usernameValue, phoneNumberValue;
     private double latitude, longitude;
     private FirebaseHelper db;
+    private ImageView logo;
+    private GifImageView gifImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +67,8 @@ public class newUser extends AppCompatActivity {
         passowrd = findViewById(R.id.new_user_password);
         phone = findViewById(R.id.mobphone);
         gotoLogin = findViewById(R.id.goto_login);
+        logo = findViewById(R.id.logo_new_account);
+        gifImageView = findViewById(R.id.sucess_made_account);
 
         email.getText().toString();
         emailValue = email.getText().toString();
@@ -173,11 +185,31 @@ public class newUser extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            //Add animation
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            db.storeNewUser(new User("","",usernameValue,emailValue,"","",user.getUid(),String.valueOf(latitude),String.valueOf(longitude)));
-                            updateUI(user);
+                            gifImageView.setVisibility(gifImageView.VISIBLE);
+                            logo.setVisibility(logo.GONE);
+                            try{
+                                InputStream inputStream = getAssets().open("checkmark.gif");
+                                byte[] bytes = IOUtils.toByteArray(inputStream);
+                                gifImageView.setBytes(bytes);
+                                gifImageView.startAnimation();
+                            }catch (IOException ex){
+
+                            }
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    // This method will be executed once the timer is over
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    db.storeNewUser(new User("","",usernameValue,emailValue,phoneNumberValue,"",user.getUid(),String.valueOf(latitude),String.valueOf(longitude)));
+
+                                    updateUI(user);
+                                    // close this activity
+                                    finish();
+                                }
+                            }, 2000);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

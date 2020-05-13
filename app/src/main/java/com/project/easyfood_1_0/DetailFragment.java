@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -40,10 +41,6 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     private TextView eventDateView;
     private TextView eventAddressView;
     //private GoogleMap mMap;
-    private TextView eventDescriptionFr;
-    private TextView eventDescriptionEn;
-    private TextView frenchCostView;
-    private TextView englishCostView;
     private TextView delivery_estimate;
     private Button show_map_click;
     private TextView restaurant_type;
@@ -92,28 +89,6 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
                 startActivity(intent);
             }
         });
-        /*mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap mMap) {
-                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
-                mMap.clear(); //clear old markers
-
-                CameraPosition googlePlex = CameraPosition.builder()
-                        .target(new LatLng(event.getLongitude(),event.getLatitude()))
-                        .zoom(17)
-                        .bearing(0)
-                        .tilt(45)
-                        .build();
-
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);
-
-                mMap.addMarker(new MarkerOptions()
-                        .title(event.getName())
-                        .position(new LatLng(event.getLongitude(), event.getLatitude())));
-
-            }
-        });*/
         return view;
     }
 

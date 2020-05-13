@@ -142,7 +142,7 @@
             android:id="@+id/new_user_signup_btn_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000000"
+            android:background="@color/main_background"
             android:text="Signup"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
@@ -167,9 +167,18 @@
         android:gravity="center"
         android:layout_marginBottom="400dp">
         <ImageView
+            android:id="@+id/logo_new_account"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/ibytes"
+            android:src="@drawable/logo"
             />
+
+        <com.felipecsl.gifimageview.library.GifImageView
+            android:id="@+id/sucess_made_account"
+            android:visibility="gone"
+            android:background="@color/white"
+            android:layout_width="208dp"
+            android:layout_height="164dp"
+            android:scaleType="fitCenter" />
     </LinearLayout>
 </RelativeLayout>

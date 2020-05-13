@@ -56,7 +56,7 @@ public class FirebaseHelper{
 
     public void storeNewUser(User u){
         ref.child("users").child(u.getUID()).setValue(u);
-    }
+}
 
 
 
