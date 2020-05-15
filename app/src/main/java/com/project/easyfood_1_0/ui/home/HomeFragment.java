@@ -43,6 +43,7 @@ import java.util.List;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 import static java.lang.StrictMath.acos;
 import static java.lang.StrictMath.cos;
+import static java.lang.StrictMath.floor;
 import static java.lang.StrictMath.sin;
 
 public class HomeFragment extends Fragment {
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new HomeViewModel(getContext());
+
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final com.project.easyfood_1_0.ListAdapter african = new com.project.easyfood_1_0.ListAdapter();
         final com.project.easyfood_1_0.ListAdapter fast_food = new com.project.easyfood_1_0.ListAdapter();

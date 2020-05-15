@@ -82,6 +82,12 @@ public class FirebaseHelper{
         restaurant.setType((String) snapshot.child("types").getValue());
         restaurant.setFr_description((String)snapshot.child("site_description").getValue()+" "+(String)snapshot.child("site_title").getValue());
     }
+    /*
+    public void createCart(Cart c){
+        ref.child("users").child("orders").child(giveDate()).setValue(c);
+    }
+
+     */
 
 
     public List<Restaurant> retrieveRestaurants() {

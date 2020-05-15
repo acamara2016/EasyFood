@@ -38,6 +38,12 @@
             android:layout_gravity="center"
             android:queryHint="Search restaurant by their names" />
 
+
+        <include
+            layout="@layout/chip_tabs"
+            />
+
+
         <TextView
             android:id="@+id/african_label"
             android:layout_width="wrap_content"

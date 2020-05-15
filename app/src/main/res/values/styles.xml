@@ -1,12 +1,30 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="textInputStyle">@style/AppTextField</item>
     </style>
+    <style name="AppTextField" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <item name="boxBackgroundColor">@android:color/white</item>
+    </style>
+    <style name="MyTextViewHomeTitle">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+                <item name="android:ellipsize">end</item>
+                <item name="android:maxLines">1</item>
+                <item name="android:layout_marginStart">@dimen/activity_vertical_margin</item>
+            </style>
+
+        <style name="MyTextViewHomeSubtitle">
+            <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+            <item name="android:ellipsize">end</item>
+            <item name="android:maxLines">1</item>
+            <item name="android:layout_marginStart">@dimen/activity_vertical_margin</item>
+        </style>
     
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/white</item>
@@ -20,6 +38,32 @@
 
     </style>
 
-    
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+    <style name="MyTextViewTitle">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
+    </style>
+
+    <style name="MyTextViewHeadline">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+    </style>
+
+    <style name="MyTextViewMedium">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="MyTextViewSubtitle">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    </style>
+    <style name="MyTextViewSmall"> <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
+
+    <style name="MyTextViewLarge">
+                <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+    </style>
+
+
 
 </resources>

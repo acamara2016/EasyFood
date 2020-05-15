@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
@@ -49,16 +50,16 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
     @SuppressLint("WrongViewCast")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_2, container, false);
+        View view = inflater.inflate(R.layout.location_details, container, false);
         //SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
         initViews(view);
         final Restaurant event = (Restaurant) getArguments().getSerializable("restaurant");
         Picasso.get().load(event.getImage()).fit().centerCrop().into(eventImageView);
-        eventTitleView.setText(event.getName());
-        delivery_estimate.setText("5-10 MIN");
-        restaurant_type.setText("$. African. Fast Food. Pizza");
-        show_map_click = view.findViewById(R.id.show_map);
+        //eventTitleView.setText(event.getName());
+        //delivery_estimate.setText("5-10 MIN");
+        //restaurant_type.setText("$. African. Fast Food. Pizza");
+        //show_map_click = view.findViewById(R.id.show_map);
 
         final ListView simpleList;
         simpleList = (ListView) view.findViewById(R.id.simpleListView);
@@ -76,7 +77,7 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
-
+        /*
         show_map_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,15 +89,15 @@ public class DetailFragment extends Fragment implements OnMapReadyCallback {
                 intent.putExtra("restaurant_name",event.getName());
                 startActivity(intent);
             }
-        });
+        });*/
         return view;
     }
 
     private void initViews(View view) {
         eventImageView = view.findViewById(R.id.event_image_view);
-        eventTitleView = view.findViewById(R.id.restaurant_title);
-        delivery_estimate = view.findViewById(R.id.delivery_duration_vew);
-        restaurant_type = view.findViewById(R.id.type_view);
+        //eventTitleView = view.findViewById(R.id.restaurant_title);
+        //delivery_estimate = view.findViewById(R.id.delivery_duration_vew);
+        //restaurant_type = view.findViewById(R.id.type_view);
         listView=view.findViewById(R.id.food_listing);
 
     }
